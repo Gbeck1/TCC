@@ -1,0 +1,21 @@
+{
+  "target": "Arduino Mega 2560 / ATmega2560 / 16 MHz",
+  "protocol_version": 2,
+  "hardware": "NB3",
+  "compiler": "GCC AVR 14.2.0",
+  "core": "Debian arduino-core-avr 1.8.7+dfsg-1~deb13u1",
+  "libraries": {
+    "ArduinoJson": "6.21.5",
+    "OneWire": "2.3.8",
+    "DallasTemperature": "4.0.6"
+  },
+  "source": "firmware/mega_controller/mega_controller.ino",
+  "source_sha256": "43a24d9e4f101377717403e2213d6014cf49319c5136c11238d246b648f25cac",
+  "hex_sha256": "7f9bd1bd64772afc64da8166107ad298b2a2cebb775535e3092ba8886d7a335e",
+  "flash_bytes": 24552,
+  "static_sram_bytes": 5311,
+  "available_sram_bytes": 8192,
+  "intel_hex_data_bytes": 24552,
+  "contains_bootloader": false,
+  "physical_upload_tested": false
+}
