@@ -243,10 +243,10 @@ void pollSettingsSave() {
     const uint8_t *bytes = reinterpret_cast<const uint8_t *>(&pendingSave);
     EEPROM.update(savePosition, bytes[savePosition]);
     ++savePosition;
-  } else if (ackCount < ACK_QUEUE_SIZE) {
+  } else if (saveCommandId == 0 || ackCount < ACK_QUEUE_SIZE) {
     // Await completion of the final byte before acknowledging persistence.
     eeprom_busy_wait();
-    queueAck(saveCommandId, true, nullptr);
+    if (saveCommandId > 0) queueAck(saveCommandId, true, nullptr);
     saveInProgress = false;
     telemetryRequested = true;
   }
@@ -346,6 +346,39 @@ void discoverTemperatureSensors() {
     if (validRom(address)) memcpy(discoveredRom[discoveredCount++], address, 8);
   }
   oneWire.reset_search();
+}
+
+uint8_t assignUnboundTemperatureSensors() {
+  // Provisional locations: shuffle real ROMs only, then keep the mapping in
+  // EEPROM. A configured, temporarily missing sensor must never change rooms.
+  uint8_t available[8];
+  uint8_t count = 0;
+  uint32_t state = millis() ^ 0xB5297A4DUL;
+  for (uint8_t candidate = 0; candidate < discoveredCount; ++candidate) {
+    if (!validRom(discoveredRom[candidate])) continue;
+    bool used = false;
+    for (uint8_t room = 0; room < ROOM_COUNT; ++room)
+      if (memcmp(discoveredRom[candidate], settings.temperatureRom[room], 8) == 0) used = true;
+    for (uint8_t other = 0; other < count; ++other)
+      if (memcmp(discoveredRom[candidate], discoveredRom[available[other]], 8) == 0) used = true;
+    if (!used) available[count++] = candidate;
+    for (uint8_t byte = 0; byte < 8; ++byte)
+      state = state * 1664525UL + discoveredRom[candidate][byte] + 1013904223UL;
+  }
+  if (state == 0) state = 0xB5297A4DUL;
+  for (uint8_t remaining = count; remaining > 1; --remaining) {
+    state ^= state << 13; state ^= state >> 17; state ^= state << 5;
+    uint8_t chosen = state % remaining;
+    uint8_t previous = available[remaining - 1];
+    available[remaining - 1] = available[chosen];
+    available[chosen] = previous;
+  }
+  uint8_t assigned = 0;
+  for (uint8_t room = 0; room < ROOM_COUNT && assigned < count; ++room) {
+    if (validRom(settings.temperatureRom[room])) continue;
+    memcpy(settings.temperatureRom[room], discoveredRom[available[assigned++]], 8);
+  }
+  return assigned;
 }
 
 float readTemperatureCooperative(const uint8_t *configuredAddress) {
@@ -658,8 +691,11 @@ void processCommand() {
     int channel = command["channel"] | -1;
     const char *text = command["address"] | "";
     uint8_t address[8];
+    int8_t previousRoom = -1;
+    bool swap = command["swap"] | false;
     bool valid = command["channel"].is<int>() && !command["channel"].is<bool>() &&
-                 channel >= 0 && channel < ROOM_COUNT && strlen(text) == 16;
+                 channel >= 0 && channel < ROOM_COUNT && strlen(text) == 16 &&
+                 (!command.containsKey("swap") || command["swap"].is<bool>());
     if (valid) {
       for (uint8_t i = 0; i < 8; ++i) {
         int8_t high = hexNibble(text[2 * i]), low = hexNibble(text[2 * i + 1]);
@@ -668,11 +704,16 @@ void processCommand() {
       }
       if (valid) valid = validRom(address);
       if (valid) for (uint8_t i = 0; i < ROOM_COUNT; ++i)
-        if (i != channel && memcmp(address, settings.temperatureRom[i], 8) == 0) valid = false;
+        if (i != channel && memcmp(address, settings.temperatureRom[i], 8) == 0) previousRoom = i;
+      if (previousRoom >= 0 && !swap) valid = false;
     }
     if (!valid) {
       queueAck(id, false, F("invalid_or_duplicate_rom"));
       return;
+    }
+    if (previousRoom >= 0) {
+      memcpy(settings.temperatureRom[previousRoom], settings.temperatureRom[channel], 8);
+      temperatures[previousRoom] = NAN;
     }
     memcpy(settings.temperatureRom[channel], address, 8);
     temperatures[channel] = NAN;
@@ -795,7 +836,7 @@ void buildTelemetry(uint32_t now) {
     if (i) telemetry.write(',');
     printRomValue(discoveredRom[i], true);
   }
-  telemetry.print(F("],\"temp_mean\":")); printFloatValue(temperatureMean);
+  telemetry.print(F("],\"temperature_auto_assignment\":true,\"temp_mean\":")); printFloatValue(temperatureMean);
   telemetry.print(F(",\"setpoints\":{\"temperature\":")); printFloatValue(settings.temperatureSetpoint);
   telemetry.print(F(",\"pressure\":")); printFloatValue(settings.pressureSetpoint);
   telemetry.print(F("},\"fans\":["));
@@ -864,6 +905,7 @@ void setup() {
   temperatureBus.setWaitForConversion(false);
   temperatureBus.setResolution(12);
   discoverTemperatureSensors();
+  if (assignUnboundTemperatureSensors() > 0) startSaveSettings(0);
   temperatureBus.requestTemperatures();
   temperatureConversionMs = millis();
   lastControlMs = millis();
