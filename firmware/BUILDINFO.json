@@ -10,12 +10,15 @@
     "DallasTemperature": "4.0.6"
   },
   "source": "firmware/mega_controller/mega_controller.ino",
-  "source_sha256": "43a24d9e4f101377717403e2213d6014cf49319c5136c11238d246b648f25cac",
-  "hex_sha256": "7f9bd1bd64772afc64da8166107ad298b2a2cebb775535e3092ba8886d7a335e",
-  "flash_bytes": 24552,
+  "source_sha256": "f9798fbdcb3834edfc2f7cfe944c9afcb32e8657a760ba3729cd08327e3c92bf",
+  "hex_sha256": "3a734a67546a5d437a84c39d551a01729e1bc2dff692cdbf467e034852a36ab3",
+  "flash_bytes": 24166,
   "static_sram_bytes": 5311,
   "available_sram_bytes": 8192,
-  "intel_hex_data_bytes": 24552,
+  "intel_hex_data_bytes": 24166,
   "contains_bootloader": false,
-  "physical_upload_tested": false
+  "physical_upload_tested": false,
+  "eeprom_version": 2,
+  "peltier_control": "on_off",
+  "temperature_hysteresis_c": 0.5
 }

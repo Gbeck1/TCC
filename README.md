@@ -1,32 +1,32 @@
-# TCC NB3 — interface 0.3.0
+# TCC NB3 — versão 0.4.0
 
-Interface para Raspberry Pi 3B com Raspberry Pi OS 64 bits e Arduino Mega 2560.
+Atualização para Raspberry Pi 3B e Arduino Mega 2560: teclado numérico por toque e Peltier Liga/Desliga.
 
-A versão 0.3.0 amplia as leituras da planta para 20 pontos em 800×480, usa fontes maiores nos formulários e oferece botões e setas de rolagem maiores. Pressão e temperatura aparecem em linhas separadas. A tela de histórico apresenta os dois gráficos, valores atuais, horários, setpoints e limites.
+- [Baixar pacote 0.4.0](https://github.com/Gbeck1/TCC/raw/refs/heads/entrega-nb3/pacotes/tcc-nb3-0.4.0.zip)
+- [Atualizar por SSH local](docs/update-0.4.md)
+- [Sketch único para compilar no Arduino IDE](firmware/mega_controller/mega_controller.ino)
+- [Firmware já compilado para Mega 2560](firmware/mega_controller.hex)
 
-- [Imagem dos gráficos do Laboratório 2](imagens/graficos-laboratorio-2.png)
-- [Imagem da planta com fontes ampliadas](imagens/planta-fontes-ampliadas.png)
-- [Baixar o pacote completo](https://github.com/Gbeck1/TCC/raw/refs/heads/entrega-nb3/pacotes/tcc-nb3-raspberry.zip)
+## Teclado por toque
 
-![Gráficos do Laboratório 2](imagens/graficos-laboratorio-2.png)
+Toque num campo numérico editável para abrir o teclado. Ele aceita vírgula decimal, sinal, Apagar e Limpar. Concluir preenche o campo, Cancelar preserva o valor anterior e Aplicar saídas envia os comandos. Os ventiladores continuam com PWM de 0 a 100%.
 
-## Atualizar uma instalação existente
+![Teclado numérico](imagens/teclado-numerico.png)
 
-Feche o programa na Raspberry Pi. Extraia o ZIP numa pasta separada, faça uma cópia de segurança da pasta raspberry instalada e copie a nova pasta raspberry para dentro de /home/beck/TCC-NB3, substituindo os arquivos correspondentes. Reabra pelo ícone. A pasta raspberry precisa conter tcc_monitor; não crie raspberry/raspberry.
+## Peltier Liga/Desliga
 
-Preserve a .venv e ~/.local/share/tcc-monitor, onde estão usuários, históricos e configurações locais. O firmware do Arduino é o mesmo da entrega anterior: esta atualização visual não exige recompilar ou gravar o Mega. As imagens estão também na pasta imagens dentro do pacote.
+Na manutenção, marque/desmarque Ligar e use Aplicar saídas. O estado recebido do Arduino aparece separado. O comando não usa percentual de PWM.
 
-Em telas de até 1024×600, a aplicação abre em tela cheia. Sair continua no cabeçalho; Esc retorna à janela e F11 alterna tela cheia. Não há autostart.
+No automático, o Peltier usa a média dos seis sensores: liga acima do setpoint + 0,5°C, desliga ao atingir o setpoint e mantém o estado dentro dessa banda. O PID ajustável continua sendo o da pressão P6. Sem média válida, a saída anterior é mantida, sem acrescentar desligamento ou intertravamento.
 
-## Instalação nova
+![Peltier Liga/Desliga](imagens/peltier-liga-desliga.png)
 
-Copie a pasta TCC-NB3 extraída para a pasta pessoal da Pi e execute como usuário normal:
+Atualize a aplicação da Pi e grave o novo firmware do Mega para alterar também o automático. O pacote inclui a fonte e o HEX compilado; não há gravação automática durante a instalação da interface. O formato EEPROM v2 foi preservado, mantendo as calibrações e associações salvas. A instalação existente informada está em /home/beck/Desktop/TCC-NB3. As instruções de SSH usam o nome local .local da Pi e transferência pelo cabo de rede, sem precisar de internet na Raspberry.
 
-```bash
-cd ~/TCC-NB3
-bash scripts/install_raspberry.sh
-```
+## Gráficos e leitura em 7 polegadas
 
-O instalador prepara a aplicação e o ícone; a gravação USB do Arduino é uma etapa separada. Os códigos-fonte, testes e instruções completas estão dentro do ZIP.
+[Imagem dos gráficos do Laboratório 2](imagens/graficos-laboratorio-2.png) · [Planta com fontes ampliadas](imagens/planta-fontes-ampliadas.png).
 
-Confira SHA256SUMS para integridade. O pacote foi validado por instalação offline numa cópia isolada, os 261 testes passaram e os fluxos de manutenção e calibração foram verificados numa tela virtual de 800×480.
+A interface mantém as fontes ampliadas e os controles por toque da versão 0.3.0. Os códigos, bibliotecas Python para instalação offline, documentos e testes estão no ZIP. Nenhuma senha SSH ou banco pessoal foi incluído. Confira SHA256SUMS.
+
+Validação: 279 testes; fluxos gráficos em Tk 8.6/800×480; captura, aplicação e gravação da calibração; 321 verificações nativas sobre o sketch; compilação AVR para ATmega2560. O HEX usa 24.166 bytes de flash e 5.311 bytes de SRAM estática. Nenhuma gravação ou medição em placa física foi executada na nuvem.
