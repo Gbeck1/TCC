@@ -1,0 +1,114 @@
+{
+  "volume_maquete_L": 90,
+  "rotacao_rpm": 1650,
+  "diametro_rotor_mm": 240,
+  "velocidade_ponta_m_s": 20.73451151369263,
+  "rho_kg_m3": 1.2,
+  "mu_Pa_s": 1.81e-05,
+  "escala_rho_u2_Pa_NAO_e_pressao_prevista": 515.9039612537428,
+  "curva_ventilador_medida": false,
+  "CFD_realizada": false,
+  "ensaio_estrutural_realizado": false,
+  "tubo_OD_mm": 14,
+  "tubo_ID_mm": "nao informado",
+  "comprimento_tubo_m": 0.35,
+  "perdas_sem_entradas_curvas_registros_grade": [
+    {
+      "diametro_interno_mm": 8,
+      "vazao_L_min": 10,
+      "velocidade_m_s": 3.316,
+      "Re": 1759,
+      "perda_reta_35cm_Pa": 10.5,
+      "regime": "laminar"
+    },
+    {
+      "diametro_interno_mm": 8,
+      "vazao_L_min": 20,
+      "velocidade_m_s": 6.631,
+      "Re": 3517,
+      "perda_reta_35cm_Pa": 47.43,
+      "regime": "transicao_incerteza_elevada"
+    },
+    {
+      "diametro_interno_mm": 8,
+      "vazao_L_min": 40,
+      "velocidade_m_s": 13.263,
+      "Re": 7034,
+      "perda_reta_35cm_Pa": 159.53,
+      "regime": "turbulento_liso"
+    },
+    {
+      "diametro_interno_mm": 8,
+      "vazao_L_min": 60,
+      "velocidade_m_s": 19.894,
+      "Re": 10552,
+      "perda_reta_35cm_Pa": 324.34,
+      "regime": "turbulento_liso"
+    },
+    {
+      "diametro_interno_mm": 10,
+      "vazao_L_min": 10,
+      "velocidade_m_s": 2.122,
+      "Re": 1407,
+      "perda_reta_35cm_Pa": 4.3,
+      "regime": "laminar"
+    },
+    {
+      "diametro_interno_mm": 10,
+      "vazao_L_min": 20,
+      "velocidade_m_s": 4.244,
+      "Re": 2814,
+      "perda_reta_35cm_Pa": 16.43,
+      "regime": "transicao_incerteza_elevada"
+    },
+    {
+      "diametro_interno_mm": 10,
+      "vazao_L_min": 40,
+      "velocidade_m_s": 8.488,
+      "Re": 5628,
+      "perda_reta_35cm_Pa": 55.27,
+      "regime": "turbulento_liso"
+    },
+    {
+      "diametro_interno_mm": 10,
+      "vazao_L_min": 60,
+      "velocidade_m_s": 12.732,
+      "Re": 8441,
+      "perda_reta_35cm_Pa": 112.38,
+      "regime": "turbulento_liso"
+    },
+    {
+      "diametro_interno_mm": 12,
+      "vazao_L_min": 10,
+      "velocidade_m_s": 1.474,
+      "Re": 1172,
+      "perda_reta_35cm_Pa": 2.07,
+      "regime": "laminar"
+    },
+    {
+      "diametro_interno_mm": 12,
+      "vazao_L_min": 20,
+      "velocidade_m_s": 2.947,
+      "Re": 2345,
+      "perda_reta_35cm_Pa": 6.91,
+      "regime": "transicao_incerteza_elevada"
+    },
+    {
+      "diametro_interno_mm": 12,
+      "vazao_L_min": 40,
+      "velocidade_m_s": 5.895,
+      "Re": 4690,
+      "perda_reta_35cm_Pa": 23.25,
+      "regime": "turbulento_liso"
+    },
+    {
+      "diametro_interno_mm": 12,
+      "vazao_L_min": 60,
+      "velocidade_m_s": 8.842,
+      "Re": 7034,
+      "perda_reta_35cm_Pa": 47.27,
+      "regime": "turbulento_liso"
+    }
+  ],
+  "vazamento_a_80Pa_Lmin_por_mm2": 0.4295486002770816
+}

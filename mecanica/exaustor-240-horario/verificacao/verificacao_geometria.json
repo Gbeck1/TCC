@@ -1,0 +1,193 @@
+{
+  "estado": "PROTOTIPO — conferir encaixes, balancear e ensaiar antes de operar",
+  "pressao_garantida": false,
+  "rpm_nominal": 1650,
+  "metodo_volume": "Integração de triângulos fechados; não é ensaio estrutural.",
+  "deflexao_absoluta_STL_mm": 0.03,
+  "folgas_mm": {
+    "traseira": 2.0,
+    "frontal": 1.5,
+    "radial_minima": 3.5
+  },
+  "engate_eixo_mm": 14.0,
+  "pecas": {
+    "01_placa_traseira": {
+      "solidos": 1,
+      "brep_valido": true,
+      "dimensoes_mm": [
+        320.136,
+        320.318,
+        8.0
+      ],
+      "volume_cm3": 316.75,
+      "massa_solida_PETG_g": 402.27
+    },
+    "02_corpo_voluta_horario": {
+      "solidos": 1,
+      "brep_valido": true,
+      "dimensoes_mm": [
+        320.136,
+        320.318,
+        27.0
+      ],
+      "volume_cm3": 193.272,
+      "massa_solida_PETG_g": 245.46
+    },
+    "03_tampa_succao_tubo14ext": {
+      "solidos": 1,
+      "brep_valido": true,
+      "dimensoes_mm": [
+        320.136,
+        320.318,
+        54.0
+      ],
+      "volume_cm3": 309.253,
+      "massa_solida_PETG_g": 392.75
+    },
+    "04_rotor_240mm_horario": {
+      "solidos": 1,
+      "brep_valido": true,
+      "dimensoes_mm": [
+        240.0,
+        240.0,
+        23.5
+      ],
+      "volume_cm3": 246.384,
+      "massa_solida_PETG_g": 312.91
+    },
+    "05_gabarito_motor": {
+      "solidos": 1,
+      "brep_valido": true,
+      "dimensoes_mm": [
+        82.0,
+        82.0,
+        6.0
+      ],
+      "volume_cm3": 25.153,
+      "massa_solida_PETG_g": 31.94
+    },
+    "06A_teste_eixo_folga_020": {
+      "solidos": 1,
+      "brep_valido": true,
+      "dimensoes_mm": [
+        20.0,
+        20.0,
+        6.0
+      ],
+      "volume_cm3": 1.502,
+      "massa_solida_PETG_g": 1.91
+    },
+    "06B_teste_eixo_folga_030": {
+      "solidos": 1,
+      "brep_valido": true,
+      "dimensoes_mm": [
+        20.0,
+        20.0,
+        6.0
+      ],
+      "volume_cm3": 1.494,
+      "massa_solida_PETG_g": 1.9
+    },
+    "06C_teste_eixo_folga_040": {
+      "solidos": 1,
+      "brep_valido": true,
+      "dimensoes_mm": [
+        20.0,
+        20.0,
+        6.0
+      ],
+      "volume_cm3": 1.485,
+      "massa_solida_PETG_g": 1.89
+    },
+    "07A_teste_tubo_furo_140": {
+      "solidos": 1,
+      "brep_valido": true,
+      "dimensoes_mm": [
+        22.0,
+        22.0,
+        10.0
+      ],
+      "volume_cm3": 2.262,
+      "massa_solida_PETG_g": 2.87
+    },
+    "07B_teste_tubo_furo_142": {
+      "solidos": 1,
+      "brep_valido": true,
+      "dimensoes_mm": [
+        22.0,
+        22.0,
+        10.0
+      ],
+      "volume_cm3": 2.217,
+      "massa_solida_PETG_g": 2.82
+    },
+    "07C_teste_tubo_furo_144": {
+      "solidos": 1,
+      "brep_valido": true,
+      "dimensoes_mm": [
+        22.0,
+        22.0,
+        10.0
+      ],
+      "volume_cm3": 2.172,
+      "massa_solida_PETG_g": 2.76
+    }
+  },
+  "interferencias_mm3": {
+    "01_placa_traseira x 02_corpo_voluta_horario": 0.0,
+    "01_placa_traseira x 03_tampa_succao_tubo14ext": 0.0,
+    "01_placa_traseira x 04_rotor_240mm_horario": 0.0,
+    "02_corpo_voluta_horario x 03_tampa_succao_tubo14ext": 0.0,
+    "02_corpo_voluta_horario x 04_rotor_240mm_horario": 0.0,
+    "03_tampa_succao_tubo14ext x 04_rotor_240mm_horario": 0.0,
+    "envelope_girante x 01_placa_traseira": 0.0,
+    "envelope_girante x 02_corpo_voluta_horario": 0.0,
+    "envelope_girante x 03_tampa_succao_tubo14ext": 0.0
+  },
+  "altura_camara_mm": 27.0,
+  "montagem_z": {
+    "placa_frente": 4.0,
+    "rotor_base": 6.0,
+    "tampa_interna": 31.0,
+    "motor_face": -4.0
+  },
+  "coordenadas_furos_corpo_mm": [
+    [
+      94.30233163642413,
+      -94.30233163642411
+    ],
+    [
+      8.416663455958173e-15,
+      -137.45454545454547
+    ],
+    [
+      -100.08775075522314,
+      -100.08775075522315
+    ],
+    [
+      -145.63636363636363,
+      -1.783531065667327e-14
+    ],
+    [
+      -105.87316987402218,
+      105.87316987402215
+    ],
+    [
+      -2.825594160214529e-14,
+      153.8181818181818
+    ],
+    [
+      111.65858899282115,
+      111.65858899282121
+    ],
+    [
+      98.95413736737818,
+      -140.0
+    ],
+    [
+      161.5,
+      -140.0
+    ]
+  ],
+  "tempo_geracao_s": 55.5
+}

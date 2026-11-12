@@ -1,0 +1,82 @@
+{
+  "unidade": "mm",
+  "estado": "PROTOTIPO — conferir encaixes, balancear e ensaiar antes de operar",
+  "motor": {
+    "diametro_frontal": 77.09,
+    "diametro_ressalto": 49.95,
+    "altura_ressalto": 2.5,
+    "diametro_eixo": 9.08,
+    "medida_plano_eixo": 8.08,
+    "eixo_ate_ponta": 24.0,
+    "circulo_furacao": 64.5,
+    "rosca_presumida": "M4 — confirmar no gabarito",
+    "rpm": 1650,
+    "potencia_placa_W": 37,
+    "tensao_placa": "110/220 V, 60 Hz",
+    "sentido_visto_pela_ponta": "horario"
+  },
+  "rotor": {
+    "diametro": 240.0,
+    "disco": 3.5,
+    "altura_pas": 20.0,
+    "numero_pas": 12,
+    "espessura_pas": 3.2,
+    "espessura_pe_pas": 5.6,
+    "altura_pe_pas": 2.0,
+    "raio_inicio_pas": 30.0,
+    "raio_fim_pas": 116.5,
+    "angulo_saida_graus": 60.0,
+    "diametro_cubo": 28.0,
+    "altura_cubo": 17.0,
+    "folga_diametral_eixo": 0.3,
+    "centro_porcas_cubo": 9.4,
+    "altura_parafusos_cubo": 9.0
+  },
+  "carcaca": {
+    "placa": 4.0,
+    "reforco_motor": 4.0,
+    "tampa": 4.0,
+    "parede": 4.0,
+    "folga_traseira": 2.0,
+    "folga_frontal": 1.5,
+    "folga_radial_minima": 3.5,
+    "arredondamento_lingua": 2.0,
+    "crescimento_voluta": 30.0,
+    "inicio_espiral_graus": 30.0,
+    "fim_descarga_y": 150.0,
+    "flange_externa": 10.0,
+    "espessura_flange": 3.0,
+    "raio_orelhas": 6.5,
+    "afastamento_furos_corpo": 8.5,
+    "canal_vedacao_largura": 2.8,
+    "canal_vedacao_profundidade": 1.5,
+    "diametro_furos_m4": 4.5,
+    "encaixe_ressalto_folga": 0.5,
+    "encaixe_ressalto_fundo": 0.4
+  },
+  "succao": {
+    "tubo_diametro_externo": 14.0,
+    "furo_encaixe": 14.2,
+    "diametro_olho": 60.0,
+    "altura_cone": 28.0,
+    "altura_soquete": 22.0,
+    "diametro_soquete_externo": 24.0,
+    "diametro_fundo_canais_oring": 17.4,
+    "largura_canais_oring": 2.6,
+    "oring_referencia": "14 x 2 mm, 2 unidades"
+  },
+  "impressao": {
+    "material": "PETG",
+    "mesa_x": 350,
+    "mesa_y": 350,
+    "mesa_z": 350
+  },
+  "processo": {
+    "pressao_sala_min_Pa": -80,
+    "pressao_sala_max_Pa": -60,
+    "comprimento_tubo_mm": 350,
+    "diametro_interno_tubo": "NAO INFORMADO",
+    "garantia_de_pressao": false,
+    "curva_medida": false
+  }
+}

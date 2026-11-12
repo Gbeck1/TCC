@@ -1,0 +1,101 @@
+{
+  "01_placa_traseira.stl": {
+    "triangulos": 76354,
+    "arestas_abertas_ou_nao_manifold": 0,
+    "componentes_conexos": 1,
+    "volume_malha_cm3": 316.7498,
+    "desvio_volume_relativo": 8e-07,
+    "tolerancia_soldagem_vertices_mm": 1e-06,
+    "sha256": "4ed9833d8446a87904d92407141d5d16935c6b2df634834c94d6fa909bbdcfc5"
+  },
+  "02_corpo_voluta_horario.stl": {
+    "triangulos": 488466,
+    "arestas_abertas_ou_nao_manifold": 0,
+    "componentes_conexos": 1,
+    "volume_malha_cm3": 193.2717,
+    "desvio_volume_relativo": 1.7e-06,
+    "tolerancia_soldagem_vertices_mm": 1e-06,
+    "sha256": "4a7031d51bded8949c9265a3ad50573ec0e894db51e577b74cbc4d304738dde2"
+  },
+  "03_tampa_succao_tubo14ext.stl": {
+    "triangulos": 70962,
+    "arestas_abertas_ou_nao_manifold": 0,
+    "componentes_conexos": 1,
+    "volume_malha_cm3": 309.2535,
+    "desvio_volume_relativo": 1.6e-06,
+    "tolerancia_soldagem_vertices_mm": 1e-06,
+    "sha256": "c7daa26360240b8a80b417df07812e186a957d222172c27da26b3dbc3a2ab4e3"
+  },
+  "04_rotor_240mm_horario.stl": {
+    "triangulos": 62582,
+    "arestas_abertas_ou_nao_manifold": 0,
+    "componentes_conexos": 1,
+    "volume_malha_cm3": 246.3843,
+    "desvio_volume_relativo": 1.4e-06,
+    "tolerancia_soldagem_vertices_mm": 1e-06,
+    "sha256": "400e0931a1a740e695425a502c3018b1ec86ec24ee363bbda3f170c869bcc754"
+  },
+  "05_gabarito_motor.stl": {
+    "triangulos": 5896,
+    "arestas_abertas_ou_nao_manifold": 0,
+    "componentes_conexos": 1,
+    "volume_malha_cm3": 25.153,
+    "desvio_volume_relativo": 1.9e-06,
+    "tolerancia_soldagem_vertices_mm": 1e-06,
+    "sha256": "a9776a1792ea5f6f444578e3e98b294e0018983f7a2d514910018f0379b91655"
+  },
+  "06A_teste_eixo_folga_020.stl": {
+    "triangulos": 1504,
+    "arestas_abertas_ou_nao_manifold": 0,
+    "componentes_conexos": 1,
+    "volume_malha_cm3": 1.5025,
+    "desvio_volume_relativo": 0.00031,
+    "tolerancia_soldagem_vertices_mm": 1e-06,
+    "sha256": "1b9e98984c537e19e08c3bbb1c9627e2c141e62ffeadf3fbdb5896f71de9a58a"
+  },
+  "06B_teste_eixo_folga_030.stl": {
+    "triangulos": 1508,
+    "arestas_abertas_ou_nao_manifold": 0,
+    "componentes_conexos": 1,
+    "volume_malha_cm3": 1.4938,
+    "desvio_volume_relativo": 0.0001283,
+    "tolerancia_soldagem_vertices_mm": 1e-06,
+    "sha256": "817b0adbfd913d324539ee15a540c7488e850c81d6454a352016221c8e8d0279"
+  },
+  "06C_teste_eixo_folga_040.stl": {
+    "triangulos": 1508,
+    "arestas_abertas_ou_nao_manifold": 0,
+    "componentes_conexos": 1,
+    "volume_malha_cm3": 1.4851,
+    "desvio_volume_relativo": 3.82e-05,
+    "tolerancia_soldagem_vertices_mm": 1e-06,
+    "sha256": "9ce364546acad1e38750fbbf27c8a16e77893a13851c09c6e13f553b1817d6b7"
+  },
+  "07A_teste_tubo_furo_140.stl": {
+    "triangulos": 1680,
+    "arestas_abertas_ou_nao_manifold": 0,
+    "componentes_conexos": 1,
+    "volume_malha_cm3": 2.2616,
+    "desvio_volume_relativo": 0.0001727,
+    "tolerancia_soldagem_vertices_mm": 1e-06,
+    "sha256": "1f8ca90afca837b880e1671b471def30a84ed307ef5453c97bcb001e09dffb47"
+  },
+  "07B_teste_tubo_furo_142.stl": {
+    "triangulos": 1680,
+    "arestas_abertas_ou_nao_manifold": 0,
+    "componentes_conexos": 1,
+    "volume_malha_cm3": 2.2173,
+    "desvio_volume_relativo": 0.0001441,
+    "tolerancia_soldagem_vertices_mm": 1e-06,
+    "sha256": "8037b120492e4ee3617a34add8bd3eb70a095c3308fb77015b14f79299712689"
+  },
+  "07C_teste_tubo_furo_144.stl": {
+    "triangulos": 1680,
+    "arestas_abertas_ou_nao_manifold": 0,
+    "componentes_conexos": 1,
+    "volume_malha_cm3": 2.1724,
+    "desvio_volume_relativo": 0.0001848,
+    "tolerancia_soldagem_vertices_mm": 1e-06,
+    "sha256": "f6e9c5ab268760a5b871a64af69e6e19dbf3dcd11202b635a7a0486d70c45147"
+  }
+}
